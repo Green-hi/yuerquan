@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <com.youth.banner.Banner
+        android:id="@+id/banner_card"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        app:banner_indicator_height="5.0dip"
+        app:banner_indicator_normal_color="#ffe5e5ea"
+        app:banner_indicator_radius="3.0dip"
+        app:banner_indicator_selected_color="#ff5d67c8"
+        app:banner_indicator_selected_width="20.0dip"
+        app:banner_infinite_loop="false" />
+
+    <com.youth.banner.indicator.RoundLinesIndicator
+        android:id="@+id/indicator"
+        android:layout_width="60.0dip"
+        android:layout_height="20.0dip"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="11.0dip" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="8.0dip"
+        android:layout_marginTop="11.0dip"
+        android:background="#fff8f8f8" />
+</LinearLayout>

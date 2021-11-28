@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".fragment.ProfileFragment">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="45.0dip"
+        app:srcCompat="@mipmap/mine_bg" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="50.0dip"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text=""
+            android:textColor="#ff333333"
+            android:textSize="18.0sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:descendantFocusability="blocksDescendants">
+
+            <LinearLayout
+                android:id="@+id/ll_container"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/ll_unlogin"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20.0dip"
+                        android:layout_marginTop="18.0dip"
+                        android:layout_marginRight="20.0dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="50.0dip"
+                            android:layout_height="50.0dip"
+                            android:src="@mipmap/nor_user" />
+
+                        <TextView
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="18.0dip"
+                            android:layout_weight="1.0"
+                            android:text="欢迎加入母子手册"
+                            android:textColor="@color/main_text_color"
+                            android:textSize="18.0sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="5.0dip"
+                            android:paddingBottom="5.0dip"
+                            android:text="马上登录"
+                            android:textColor="@color/main_text_color"
+                            android:textSize="14.0sp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10.0dip"
+                            app:srcCompat="@mipmap/mine_next" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_login"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20.0dip"
+                        android:layout_marginTop="18.0dip"
+                        android:layout_marginRight="20.0dip"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="0.0dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.0"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/iv_head"
+                                android:layout_width="50.0dip"
+                                android:layout_height="50.0dip"
+                                android:src="@mipmap/non_user" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18.0dip"
+                                android:layout_weight="1.0"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/tv_name"
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="wrap_content"
+                                    android:ellipsize="end"
+                                    android:gravity="center_vertical"
+                                    android:maxLines="1"
+                                    android:paddingRight="10.0dip"
+                                    android:text="木沉"
+                                    android:textColor="@color/main_text_color"
+                                    android:textSize="18.0sp"
+                                    android:textStyle="bold" />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8.0dip"
+                                    android:gravity="center_vertical"
+                                    android:orientation="horizontal">
+                                    <TextView
+                                        android:id="@+id/tv_fans"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="粉丝 85.5万"
+                                        android:textColor="#ff666666"
+                                        android:textSize="12.0sp" />
+                                    <View
+                                        android:layout_width="1.0dip"
+                                        android:layout_height="16.0dip"
+                                        android:layout_marginLeft="10.0dip"
+                                        android:background="#ffeeeeee" />
+                                    <TextView
+                                        android:id="@+id/tv_follow"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10.0dip"
+                                        android:text="关注 38"
+                                        android:textColor="#ff666666"
+                                        android:textSize="12.0sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10.0dip"
+                                app:srcCompat="@mipmap/mine_next" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6.0dip"
+                    android:layout_marginTop="14.0dip"
+                    android:layout_marginRight="6.0dip"
+                    android:background="@mipmap/mine_cardbg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_pianzhangtype"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/iv_typeicon"
+                            android:layout_width="34.0dip"
+                            android:layout_height="34.0dip"
+                            app:srcCompat="@mipmap/mine_baby" />
+
+                        <TextView
+                            android:id="@+id/tv_typename"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="14.0dip"
+                            android:text="宝宝资料"
+                            android:textColor="#ff333333"
+                            android:textSize="14.0sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1.0dip"
+                        android:layout_height="40.0dip"
+                        android:background="#ffeeeeee" />
+
+                    <LinearLayout
+                        android:id="@+id/ll_faceback"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="34.0dip"
+                            android:layout_height="34.0dip"
+                            app:srcCompat="@mipmap/mine_faceback" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="14.0dip"
+                            android:text="意见反馈"
+                            android:textColor="#ff333333"
+                            android:textSize="14.0sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/rl_close"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18.0dip"
+                    android:layout_marginTop="4.0dip"
+                    android:layout_marginRight="18.0dip"
+                    android:layout_marginBottom="20.0dip"
+                    android:background="@drawable/bg_yellow_corner"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="18.0dip"
+                    android:paddingRight="13.0dip"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="14.0dip"
+                        android:layout_height="14.0dip"
+                        app:srcCompat="@mipmap/mine_zg" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="22.0dip"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="10.0dip"
+                        android:layout_marginTop="5.0dip"
+                        android:layout_marginBottom="5.0dip"
+                        android:layout_weight="1.0"
+                        android:gravity="center_vertical"
+                        android:text="您的个人资料待完善"
+                        android:textColor="#ff333333"
+                        android:textSize="12.0sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_close"
+                        android:layout_width="18.0dip"
+                        android:layout_height="18.0dip"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="5.0dip"
+                        app:srcCompat="@mipmap/cp_icon_clear_all"
+                        app:tint="@color/black" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="#fff8f8f8">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rv_profile"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8.0dip" />
+                </FrameLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="false">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smart"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        app:srlEnableLoadMore="false">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="190.0dip"
+                    android:background="@color/white">
+
+                    <ImageView
+                        android:id="@+id/iv_citybg"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@mipmap/ic_city_bg" />
+
+                    <ImageView
+                        android:id="@+id/iv_jkthome"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15.0dip"
+                        android:layout_marginTop="55.0dip"
+                        android:visibility="gone"
+                        app:srcCompat="@mipmap/icon_jkthome" />
+
+                    <TextView
+                        android:id="@+id/tv_city"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15.0dip"
+                        android:layout_marginTop="75.0dip"
+                        android:drawableRight="@mipmap/ic_city_choose"
+                        android:drawablePadding="10.0dip"
+                        android:text="西安"
+                        android:textColor="#ffffffff"
+                        android:textSize="30.0sp" />
+
+                    <com.qmuiteam.qmui.layout.QMUILinearLayout
+                        android:id="@+id/ll_addcard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="85.0dip"
+                        android:layout_marginRight="18.0dip"
+                        android:background="#ccffffff"
+                        android:gravity="center"
+                        android:padding="10.0dip"
+                        android:visibility="gone"
+                        app:qmui_radius="15.0dip">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/card_addmomorbaby" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7.0dip"
+                            android:text="添加卡片"
+                            android:textColor="#ff666666"
+                            android:textSize="12.0sp" />
+                    </com.qmuiteam.qmui.layout.QMUILinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/layout_nobindcard"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-10.0dip"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="50.0dip"
+                        android:layout_alignParentBottom="true"
+                        android:background="@drawable/banyuan" />
+
+                </RelativeLayout>
+
+                <!--<com.taopao.modulemuzi.view.MuZiCardLayout
+                    android:id="@id/layout_card"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="-60.0dip"
+                    android:visibility="gone" />-->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:background="@drawable/banyuan"
+                    android:orientation="vertical">
+                    <com.greenhi.lalababy.view.HomeToolsLayout
+                        android:id="@+id/layout_tools"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="visible"/>
+                    <com.greenhi.lalababy.view.HomeServicesLayout
+                        android:id="@+id/layout_services"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <com.greenhi.lalababy.view.HomeReadLayout
+                        android:id="@+id/layout_read"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8.0dip"
+                        android:text="今日内容已完成学习，记得去广场逛逛哦～"
+                        android:textColor="#ff999999"
+                        android:textSize="12.0sp" />
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="30.0dip"
+                        android:background="#fff8f8f8" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <!--<com.taopao.modulemuzi.view.MuZIEmptyView
+        android:id="@id/emptyview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" />-->
+</FrameLayout>

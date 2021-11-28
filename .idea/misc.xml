@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.146875" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/banyuan.xml" value="0.2324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_actionbar.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_gradient_red.xml" value="0.2324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_login_agree.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_nobincard_top.xml" value="0.2324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_nobindcard.xml" value="0.2324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/bg_yellow_corner.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/button_red_bg.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/button_send_bg.xml" value="0.2324074074074074" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/et_common_bg.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/food_text_bg.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/ic_launcher_background.xml" value="0.22592592592592592" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/item_clicked.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/login_agree_selector.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/login_btn_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/main_tab_text_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/pull_button.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/select_textcolor_pyq.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_follow_normal.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_login_btn.xml" value="0.22592592592592592" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_login_btn_pressed.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_login_icon.xml" value="0.22592592592592592" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_minyuan.xml" value="0.22592592592592592" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/shape_textbg_red.xml" value="0.22037037037037038" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_home_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_journal_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_message_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_profile_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_square_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/drawable/tab_weixin_selector.xml" value="0.23796296296296296" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/activity_login_constrain.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/bottom_layout.xml" value="0.24230072463768115" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/common_social.xml" value="0.18070652173913043" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_community.xml" value="0.1" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_home.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_joural.xml" value="0.20018115942028986" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_me.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_message.xml" value="0.18070652173913043" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_newbie_mami.xml" value="0.19384057971014493" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/fragment_profile.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/item_pager.xml" value="0.24230072463768115" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_home_read.xml" value="0.19384057971014493" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_home_tools.xml" value="0.2" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_home_tools2.xml" value="0.19384057971014493" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_muzi_card.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_muzi_faq.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_muzi_nobindcard.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_mz_tools.xml" value="0.20018115942028986" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_test.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/layout_top.xml" value="0.18070652173913043" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/pyq_recycle_item_useranswerhome.xml" value="0.3958762886597938" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_apptools.xml" value="0.20018115942028986" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_articles.xml" value="0.19384057971014493" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_community.xml" value="0.13072916666666667" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_mami.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_message.xml" value="0.18070652173913043" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_message_system.xml" value="0.13072916666666667" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/layout/recycle_item_profile.xml" value="0.264" />
+        <entry key="..\:/AndroidStudioProjects/lalaBaby/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.22037037037037038" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

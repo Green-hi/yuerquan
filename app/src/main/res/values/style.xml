@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+    </style>
+
+    <style name="AppTheme.NoActionBar" parent="AppTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="EditTextCommon" parent="@style/Widget.AppCompat.EditText">
+        <item name="android:textAppearance">@style/Textfield1</item>
+        <item name="android:textColorHint">@color/gc_0</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/et_common_bg</item>
+        <item name="android:padding">12.0dip</item>
+    </style>
+
+    <style name="ActivityTheme.Full" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+    <style name="ActivityTranslucent" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowActionBar">false</item>
+    </style>
+    <style name="YuerAppTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="ThemeSplash1" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Textfield1" parent="@style/HuabanText">
+        <item name="android:textSize">14.0sp</item>
+        <item name="android:textColor">@color/g_40</item>
+    </style>
+    <style name="HuabanText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    <style name="HBButton" parent="@style/Widget.AppCompat.Button.Borderless" />
+    <style name="HBButtonRed" parent="@style/HBButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/button_red_bg</item>
+    </style>
+    <style name="HBButtonRed.Large" parent="@style/HBButtonRed">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:padding">7.0dip</item>
+    </style>
+    <style name="Section1" parent="@style/HuabanText">
+        <item name="android:textSize">16.0sp</item>
+        <item name="android:textColor">@color/ga_0</item>
+    </style>
+    <style name="HBButton.Social" parent="@style/HBButton">
+        <item name="android:layout_width">48.0dip</item>
+        <item name="android:layout_height">48.0dip</item>
+    </style>
+</resources>

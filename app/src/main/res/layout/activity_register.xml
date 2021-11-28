@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearContainer"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/fillPhoneNumber"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36.0dip"
+            android:gravity="center_horizontal"
+            android:text="请输入您的手机号"
+            android:textColor="@color/g_40"
+            android:textSize="16.0sp" />
+
+        <EditText
+            android:id="@+id/phoneET"
+            style="@style/EditTextCommon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="36.0dip"
+            android:layout_marginRight="24.0dip"
+            android:hint="手机号"
+            android:inputType="phone"
+            android:paddingLeft="12.0dip"
+            android:paddingTop="9.0dip"
+            android:paddingRight="12.0dip"
+            android:paddingBottom="9.0dip"
+            android:textSize="16.0sp" />
+        <Button
+            android:id="@+id/nextBtn"
+            style="@style/HBButtonRed.Large"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24.0dip"
+            android:text="下一步" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fillAccount"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="36.0dip"
+            android:text="验证您的手机号并完善账号"
+            android:textColor="@color/g_40"
+            android:textSize="16.0sp" />
+
+        <TextView
+            android:id="@+id/phoneNumberTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40.0dip"
+            android:gravity="center_horizontal"
+            android:textColor="@color/g_40"
+            android:textSize="24.0sp" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="40.0dip"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="27.0dip"
+            android:layout_marginRight="24.0dip"
+            android:background="@drawable/et_common_bg"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/captchaET"
+                android:layout_width="0.0dip"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                android:background="#fff5f5f5"
+                android:hint="短信验证码"
+                android:inputType="numberDecimal"
+                android:paddingLeft="12.0dip"
+                android:paddingTop="9.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingBottom="9.0dip"
+                android:textColor="@color/g_40"
+                android:textColorHint="@color/g_bf"
+                android:textSize="16.0sp" />
+
+            <Button
+                android:id="@+id/sendCaptchaBtn"
+                android:layout_width="100.0dip"
+                android:layout_height="fill_parent"
+                android:background="@drawable/button_send_bg"
+                android:textColor="@color/white"
+                android:textSize="12.0sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="24.0dip"
+            android:layout_marginRight="24.0dip"
+            android:background="@drawable/et_common_bg"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/passwordET"
+                style="@style/EditTextCommon"
+                android:layout_width="0.0dip"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:hint="密码(大于6位的字母和数字)"
+                android:inputType="textPassword"
+                android:textSize="16.0sp" />
+
+            <ImageView
+                android:id="@id/mSeeIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="12dp"
+                android:src="@drawable/ic_password_see"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/nicknameET"
+            style="@style/EditTextCommon"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24.0dip"
+            android:layout_marginTop="24.0dip"
+            android:layout_marginRight="24.0dip"
+            android:hint="昵称"
+            android:paddingLeft="12.0dip"
+            android:paddingTop="9.0dip"
+            android:paddingRight="12.0dip"
+            android:paddingBottom="9.0dip"
+            android:textSize="16.0sp" />
+
+        <Button
+            android:id="@+id/submitBtn"
+            style="@style/HBButtonRed.Large"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="24.0dip"
+            android:text="确定" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="40.0dip"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_agree_register"
+                    android:layout_width="18.0dip"
+                    android:layout_height="18.0dip"
+                    android:padding="4.0dip"
+                    android:src="@drawable/login_agree_selector" />
+
+                <TextView
+                    android:id="@+id/tv_statement_register"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/login_tip"
+                    android:textColor="@color/g_80"
+                    android:textSize="12.0sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

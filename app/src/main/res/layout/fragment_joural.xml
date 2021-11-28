@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/statusbar_view_height"
+        android:background="#ffff6688" />
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/smartRefresh"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:clipChildren="false"
+        app:srlDragRate="0.75"
+        app:srlEnableLoadMore="false"
+        app:srlEnableNestedScrolling="true"
+        app:srlEnableOverScrollDrag="true"
+        app:srlEnablePreviewInEditMode="false"
+        app:srlEnableRefresh="true">
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@color/white"
+                android:descendantFocusability="blocksDescendants"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@id/ll_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:animateLayoutChanges="true"
+                    android:background="#fff8f8f8"
+                    android:orientation="vertical"
+                    android:paddingBottom="8.0dip">
+
+                    <!--<com.taopao.modulenewbie.view.ParentingTypeView
+                        android:id="@id/pareningview"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white" />
+
+                    <com.taopao.modulenewbie.view.LayoutNewBieTools
+                        android:id="@id/layout_tools"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+
+                    <com.taopao.modulenewbie.view.WegitBSanView
+                        android:id="@id/layout_wbtools"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />-->
+
+                    <LinearLayout
+                        android:id="@+id/ll_loading"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <!--<com.taopao.modulenewbie.view.TicketView
+                            android:id="@id/layout_ticket"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.NewBieBannerView
+                            android:id="@id/layout_banner"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.LayoutNewBieLive
+                            android:id="@id/layout_live"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.YimiaoView
+                            android:id="@id/layout_ym"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8.0dip"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.AdsView
+                            android:id="@id/layout_ads"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8.0dip"
+                            android:background="@color/white"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.TodayQuestionView
+                            android:id="@id/layout_today_question"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8.0dip"
+                            android:background="@color/white"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.MainPointsView
+                            android:id="@id/layout_main_point"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8.0dip"
+                            android:background="@color/white"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.XiaoYuRadioStationView
+                            android:id="@id/layout_xiaoyu"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10.0dip"
+                            android:background="@color/white"
+                            android:visibility="gone" />
+
+                        <com.taopao.modulenewbie.view.DoctorSoundView
+                            android:id="@id/layout_doctor_sound"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10.0dip"
+                            android:background="@color/white"
+                            android:visibility="gone" />-->
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="8.0dip"
+                        android:text="今日内容已完成学习，记得去广场逛逛哦～"
+                        android:textColor="#ff999999"
+                        android:textSize="12.0sp" />
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <!--<com.taopao.modulenewbie.view.TopBarView
+                android:id="@id/topbar"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <com.taopao.modulenewbie.view.MusciButtomController
+                android:id="@id/mpv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:visibility="gone" />-->
+        </FrameLayout>
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+</LinearLayout>

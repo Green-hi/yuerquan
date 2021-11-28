@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="statusbar_view_height">25.0dip</dimen>
+    <dimen name="toolbar_height">50.0dip</dimen>
+    <dimen name="toolbar_padding_top">50.0dip</dimen>
+    <dimen name="toolbar_text">16.0sp</dimen>
+    <dimen name="toolbar_title">18.0sp</dimen>
+</resources>

@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">育儿圈</string>
+    <string name="login_tip">同意《育儿圈用户服务协议》《隐私政策》</string>
+    <string name="test_text">我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介
+            我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我
+            是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是
+            简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介
+            我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我
+            是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是简介我是
+            简介我是简介我是简介</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>
