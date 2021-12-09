@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layout_top"
+    android:layout_width="fill_parent"
+    android:layout_height="50.0dip"
+    android:layout_alignParentTop="true"
+    android:background="#ffffffff"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@id/layout_left"
+        android:layout_width="50.0dip"
+        android:layout_height="fill_parent"
+        android:layout_marginRight="10.0dip"
+        android:gravity="center_vertical"
+        android:onClick="back"
+        android:orientation="vertical"
+        android:paddingLeft="18.0dip">
+
+        <ImageView
+            android:layout_width="8.0dip"
+            android:layout_height="15.0dip"
+            android:scaleType="fitXY"
+            app:tint="#ff000000"
+            app:srcCompat="@drawable/back_word" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@id/tv_title"
+        android:layout_width="0.0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight="1.0"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:text="添加日记"
+        android:lines="1"
+        android:textColor="#ff333333"
+        android:textSize="18.0dip" />
+
+    <LinearLayout
+        android:id="@+id/layout_right"
+        android:layout_width="60.0dip"
+        android:layout_height="fill_parent"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingRight="18.0dip">
+
+        <TextView
+            android:id="@+id/tv_right"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            android:text="完成"
+            android:textColor="#ff333333"
+            android:textSize="16.0dip"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_right"
+            android:layout_width="wrap_content"
+            android:layout_height="23.0dip"
+            app:tint="#ff000000"
+            android:visibility="visible" />
+    </LinearLayout>
+</LinearLayout>

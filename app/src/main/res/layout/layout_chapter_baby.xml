@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200.0dip"
+        android:background="@drawable/bg_homepage">
+
+        <RelativeLayout
+            android:id="@+id/layout_three"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginTop="70.0dip">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_baby"
+                android:layout_width="90.0dip"
+                android:layout_height="90.0dip"
+                android:layout_marginLeft="30.0dip"
+                android:src="@mipmap/icon_home_baby" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="42.0dip"
+                android:layout_toRightOf="@id/iv_baby"
+                android:orientation="vertical"
+                android:paddingRight="18.0dip">
+
+                <TextView
+                    android:id="@+id/tv_baby_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="myBaby"
+                    android:textColor="@color/white"
+                    android:textSize="25.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_baby_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7.0dip"
+                    android:layout_marginRight="10.0dip"
+                    android:text="宝宝出生128天"
+                    android:textColor="@color/background"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/tv_baby_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:text="@string/baby_weight"
+                    android:textColor="@color/white"
+                    android:textSize="15.0sp"
+                    android:visibility="gone"/>
+                <TextView
+                    android:id="@id/tv_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:background="@drawable/btn_white_10dp"
+                    android:padding="5.0dip"
+                    android:text="2020年12月28日"
+                    android:textColor="@color/white"
+                    android:textSize="15.0sp" />
+            </LinearLayout>
+        </RelativeLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_one"
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="12.0dip"
+        android:layout_marginRight="12.0dip"
+        android:background="@mipmap/icon_chapter_baby_bg"
+        android:orientation="vertical"
+        android:paddingLeft="15.0dip"
+        android:paddingRight="15.0dip"
+        android:paddingBottom="19.0dip">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0-3岁养育"
+                android:textColor="#ff4a4a4a"
+                android:textSize="16.0sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:layout_width="10.0dip"
+                android:layout_height="12.0dip"
+                android:layout_marginLeft="5.0dip"
+                android:src="@mipmap/tools_icon_dunpai" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_yl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16.0dip"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:src="@mipmap/icon_baby_yl" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0dip"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv_baby_yl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="11-12月龄宝宝"
+                        android:textColor="#ff4a4a4a"
+                        android:textSize="12.0sp" />
+
+                    <com.qmuiteam.qmui.widget.roundwidget.QMUIRoundButton
+                        android:id="@+id/btn_yl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:paddingLeft="12.0dip"
+                        android:paddingTop="3.0dip"
+                        android:paddingRight="12.0dip"
+                        android:paddingBottom="3.0dip"
+                        android:text="了解更多"
+                        android:textColor="#ff47cc47"
+                        android:textSize="10.0dip"
+                        app:qmui_borderColor="#ff47cc47"
+                        app:qmui_borderWidth="1.0dip"
+                        app:qmui_radius="5.0dip" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_baby_des"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8.0dip"
+                    android:text="12月龄的女宝宝平均身高74cm，平均体重8.9kg，平均头围44.9cm。宝宝能吃的食物慢慢增多，游戏的种类逐渐丰富。"
+                    android:textColor="#ff9b9b9b"
+                    android:textSize="10.0sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

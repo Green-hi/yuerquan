@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/actionbar_top" />
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@color/background">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_title"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:hint="添加标题（3-20字）"
+                android:maxLength="20"
+                android:padding="15.0dip"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/et_content"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dip"
+                android:background="@color/white"
+                android:gravity="left"
+                android:hint="记录宝宝的点点滴滴"
+                android:minLines="6"
+                android:padding="15.0dip"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/text_hint_color"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15.0dip"
+                    android:layout_marginBottom="15.0dip"
+                    android:background="@drawable/btn_main_color_20dp"
+                    android:gravity="center"
+                    android:hint="@string/diary_tag"
+                    android:paddingLeft="10.0dip"
+                    android:paddingTop="5.0dip"
+                    android:paddingRight="10.0dip"
+                    android:paddingBottom="5.0dip"
+                    android:textColor="@color/main_color"
+                    android:textColorHint="@color/main_color"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.0dip"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="15.0dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_baby_diary_time"
+                    android:drawablePadding="5.0dip"
+                    android:text="记录时间"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@id/tv_time"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="right"
+                    android:text="2017-12-20"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="25.0dip"
+                    android:layout_height="25.0dip"
+                    app:srcCompat="@drawable/right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dip"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="15.0dip"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_baby_diary_ys"
+                    android:drawablePadding="5.0dip"
+                    android:text="隐私设置"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_setting"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="right"
+                    android:text="仅自己可见"
+                    android:textColor="@color/grey"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="25.0dip"
+                    android:layout_height="25.0dip"
+                    app:tint="@color/text_hint_color"
+                    app:srcCompat="@drawable/right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_address"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1.0dip"
+                android:background="@color/white"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="15.0dip">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/icon_baby_diary_address"
+                    android:drawablePadding="5.0dip"
+                    android:text="添加位置"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@id/tv_address"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5.0dip"
+                    android:layout_weight="1.0"
+                    android:gravity="right"
+                    android:hint="@string/diary_address"
+                    android:textColor="@color/grey"
+                    android:textColorHint="@color/grey"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="25.0dip"
+                    android:layout_height="25.0dip"
+                    app:srcCompat="@drawable/right_arrow" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6.0dip"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="110.0dip"
+                    android:layout_height="110.0dip"
+                    android:layout_margin="10.0dip"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@id/imageView"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        app:srcCompat="@color/background" />
+
+                    <ImageView
+                        android:id="@+id/iv_play"
+                        android:layout_width="27.0dip"
+                        android:layout_height="27.0dip"
+                        android:layout_centerInParent="true"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@mipmap/icon_play_video" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
