@@ -51,7 +51,7 @@ public class HomeToolsAdapter extends RecyclerView.Adapter<HomeToolsAdapter.View
             @Override
             public void onClick(View view) {
                 Context mContext = view.getContext();
-                Toast.makeText(mContext, position + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, position + "", Toast.LENGTH_SHORT).show();
                 switch (position){
                     case 0:
                         Intent intent1 = new Intent(mContext, Home1Activity.class);

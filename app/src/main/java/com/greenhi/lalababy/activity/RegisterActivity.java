@@ -102,49 +102,55 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void doRegister() {
-        UserBase userBase = new UserBase(mEtPhoneNum.getText().toString()
-                , mEtPwd.getText().toString(), mEtNickname.getText().toString());
-        UserExtend userExtend = new UserExtend(mEtPhoneNum.getText().toString()
-                ,mEtNickname.getText().toString(),null,null);
-        Call<PostResult> task1 = mApi.addUserBase(userBase);
-        Call<PostResult> task2 = mApi.addUserExtend(userExtend);
-        task2.enqueue(new Callback<PostResult>() {
+        new Thread(new Runnable() {
             @Override
-            public void onResponse(Call<PostResult> call, Response<PostResult> response) {
-                Log.e(TAG, "onResponse--> "+response );
-                if (response.code() == HttpURLConnection.HTTP_OK) {
-                    PostResult result = response.body();
-                    Log.e(TAG, "add user-extend responseBody --> " + result);
+            public void run() {
+                UserBase userBase = new UserBase(mEtPhoneNum.getText().toString()
+                        , mEtPwd.getText().toString(), mEtNickname.getText().toString());
+                UserExtend userExtend = new UserExtend(mEtPhoneNum.getText().toString()
+                        ,mEtNickname.getText().toString(),null,null);
+                Call<PostResult> task1 = mApi.addUserBase(userBase);
+                Call<PostResult> task2 = mApi.addUserExtend(userExtend);
+                task2.enqueue(new Callback<PostResult>() {
+                    @Override
+                    public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                        Log.e(TAG, "onResponse--> "+response );
+                        if (response.code() == HttpURLConnection.HTTP_OK) {
+                            PostResult result = response.body();
+                            Log.e(TAG, "add user-extend responseBody --> " + result);
 
-                }
-            }
-            @Override
-            public void onFailure(Call<PostResult> call, Throwable t) {
-                Log.e(TAG, "onFailure --> " + t.toString());
-            }
-        });
-        task1.enqueue(new Callback<PostResult>() {
-            @Override
-            public void onResponse(Call<PostResult> call, Response<PostResult> response) {
-                Log.e(TAG, "onResponse--> "+response );
-                if (response.code() == HttpURLConnection.HTTP_OK) {
-                    PostResult result = response.body();
-                    Log.e(TAG, "responseBody --> " + result);
-                    if (result.getCode() == 100) {
-                        showToast("注册成功");
-                        navigateTo(LoginActivity.class);
-                    }else {
-                        showToast(result.getCode()+" "+result.getMessage());
+                        }
                     }
-                }else {
-                    showToast(response.toString());
-                }
+                    @Override
+                    public void onFailure(Call<PostResult> call, Throwable t) {
+                        Log.e(TAG, "onFailure --> " + t.toString());
+                    }
+                });
+                task1.enqueue(new Callback<PostResult>() {
+                    @Override
+                    public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                        Log.e(TAG, "onResponse--> "+response );
+                        if (response.code() == HttpURLConnection.HTTP_OK) {
+                            PostResult result = response.body();
+                            Log.e(TAG, "responseBody --> " + result);
+                            if (result.getCode() == 100) {
+                                showToast("注册成功");
+                                navigateTo(LoginActivity.class);
+                            }else {
+                                showToast(result.getCode()+" "+result.getMessage());
+                            }
+                        }else {
+                            showToast(response.toString());
+                        }
+                    }
+                    @Override
+                    public void onFailure(Call<PostResult> call, Throwable t) {
+                        Log.e(TAG, "onFailure --> " + t.toString());
+                        showToast("连接失败！请检查网络连接");
+                    }
+                });
             }
-            @Override
-            public void onFailure(Call<PostResult> call, Throwable t) {
-                Log.e(TAG, "onFailure --> " + t.toString());
-                showToast("连接失败！请检查网络连接");
-            }
-        });
+        }).start();
+
     }
 }

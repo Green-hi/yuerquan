@@ -1,5 +1,7 @@
 package com.greenhi.lalababy.fragment;
 
+import static android.app.Activity.RESULT_OK;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -75,7 +77,7 @@ public class CommunityFragment extends Fragment {
         Log.e("TAG4544", "onCreateView: CommunityFragment");
         initData();
         initView();
-        //handleRefresh();
+        handleRefresh();
         return rootView;
     }
 
@@ -92,37 +94,6 @@ public class CommunityFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), AddCommunityActivity.class);
                 intent.putExtra("phoneNum",phoneNum);
                 startActivity(intent);
-            }
-        });
-    }
-
-    private void handleRefresh() {
-        //mSwipeRefreshLayout.setColorSchemeResources(R.color.pink,R.color.purple_200,R.color.white);
-        mSwipeRefreshLayout.setEnabled(true);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                //  在这里执行刷新数据的操作
-                /**
-                 * 这个方法是MainThread是主线程，不可以执行耗时操作。
-                 * 一般来说，我们请求数据需要开一个线程去获取
-                 */
-                //添加数据
-                List<Integer> comImgList = new ArrayList<>();
-                comImgList.add(R.drawable.com_img2);
-                comImgList.add(R.drawable.com_img3);
-//                ItemDataCommunity data = new ItemDataCommunity(R.drawable.head6, "草草", "宝宝2年8月27天", "刚刚", "", "2", "1"
-//                        , "我的小宝贝帮麻麻吹头发", comImgList);
-//                comList.add(0, data);
-                //更新UI
-                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        //这里做两件事，一件是让刷新停止，另一件是更新列表
-                        recycleAdapter.notifyDataSetChanged();
-                        mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                }, 1000);
             }
         });
     }
@@ -220,5 +191,66 @@ public class CommunityFragment extends Fragment {
         mSwipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh);
         mContentView = rootView.findViewById(R.id.cv_community);
         ScreenUtils.addTransParentStatusView(getActivity(), mContentView);
+    }
+    private void handleRefresh() {
+        //mSwipeRefreshLayout.setColorSchemeResources(R.color.pink,R.color.purple_200,R.color.white);
+        mSwipeRefreshLayout.setEnabled(true);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //  在这里执行刷新数据的操作
+                /**
+                 * 这个方法是MainThread是主线程，不可以执行耗时操作。
+                 * 一般来说，我们请求数据需要开一个线程去获取
+                 */
+                //添加数据
+                List<Integer> comImgList = new ArrayList<>();
+                comImgList.add(R.drawable.com_img2);
+                comImgList.add(R.drawable.com_img3);
+//                ItemDataCommunity data = new ItemDataCommunity(R.drawable.head6, "草草", "宝宝2年8月27天", "刚刚", "", "2", "1"
+//                        , "我的小宝贝帮麻麻吹头发", comImgList);
+//                comList.add(0, data);
+                Call<CommunityResult> task = mApi.getComAll();
+                task.enqueue(new Callback<CommunityResult>() {
+                    @Override
+                    public void onResponse(Call<CommunityResult> call, Response<CommunityResult> response) {
+                        Log.e(TAG, "onResponse--> " + response);
+                        if (response.code() == HttpURLConnection.HTTP_OK) {
+                            CommunityResult result = response.body();
+                            Log.e(TAG, "responseBody --> " + result);
+                            if (result.getCode() == 100) {
+                                Toast.makeText(getActivity(), "刷新成功", Toast.LENGTH_SHORT).show();
+                                comList = result.getData();
+                                Log.e(TAG, "comList--> " + comList);
+                                Message message = new Message();
+                                message.obj = comList;
+                                mHandler.sendMessage(message);
+                            } else {
+                                Toast.makeText(getActivity(), result.getCode() + " " + result.getMsg(), Toast.LENGTH_SHORT).show();
+                                Log.e(TAG, result.getCode() + " " + result.getMsg());
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
+                            Log.e(TAG, response.toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<CommunityResult> call, Throwable t) {
+                        Log.e(TAG, "onFailure --> " + t.toString());
+                        Toast.makeText(getActivity(), "连接失败！请检查网络连接", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                //更新UI
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //这里做两件事，一件是让刷新停止，另一件是更新列表
+                        recycleAdapter.notifyDataSetChanged();
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+            }
+        });
     }
 }

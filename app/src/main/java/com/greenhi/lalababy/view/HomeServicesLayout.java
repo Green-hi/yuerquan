@@ -43,7 +43,7 @@ public class HomeServicesLayout extends LinearLayout {
         mToolList.add(new ItemDataTools(R.drawable.icon_taidong_baby,"宝宝成长特点"));
         mToolList.add(new ItemDataTools(R.drawable.icon_xiaole,"亲子游戏"));
         mToolList.add(new ItemDataTools(R.mipmap.icon_home_heightweight,"健康管理"));
-        mToolList.add(new ItemDataTools(R.drawable.icon_message_muzi,"养娃小tip"));
+        mToolList.add(new ItemDataTools(R.drawable.icon_message_muzi,"养娃小tips"));
     }
 
     private void initView() {

@@ -20,11 +20,14 @@ import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
 public class CommunityRecyclerAdapter extends RecyclerView.Adapter<CommunityRecyclerAdapter.ViewHolder> {
+
+    public static final String TAG = "bibibibi";
 
     private List<CommunityResult.DataDTO> comList;
     //private LayoutInflater mInflater;
@@ -119,24 +122,34 @@ public class CommunityRecyclerAdapter extends RecyclerView.Adapter<CommunityRecy
 
         public void bind(CommunityResult.DataDTO data) {
             //head.setImageResource(data.getHeadID());
-            name.setText(data.getName());   //注意！！！setText要传入String类型！！！
-            //status.setText(data.getStatus());
-//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//            Date time1 = new Date();
-//            Date time2 = null;
-//            String sd = df.format(new Date(Long.parseLong(String.valueOf(data.getTime()))));
-//            try {
-//                time2 = df.parse(sd);
-//            } catch (ParseException e) {
-//                e.printStackTrace();
-//            }
-//            long time = time1.getTime()-time2.getTime();
-//            long day=time/(24*60*60*1000);
-//            long hour=(time/(60*60*1000)-day*24);
-//            long min=((time/(60*1000))-day*24*60-hour*60);
-//            long s=(time/1000-day*24*60*60-hour*60*60-min*60);
-//            this.time.setText("d:"+day+"h:"+hour+"m:"+min+"s:"+s);
-            this.time.setText(data.getTime());
+            Log.e(TAG, "data--> "+data.toString() );
+            name.setText(data.getName());
+            this.status.setText(data.getStatus());
+            Log.e(TAG, "status--> "+data.getStatus() );
+            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date time1 = new Date();
+            Log.e(TAG, "time1--> "+time1 );
+            ParsePosition pos = new ParsePosition(0);
+            Date time2 = df.parse(data.getTime(),pos);
+            Log.e(TAG, "time2--> "+time2 );
+            long time = time1.getTime()-time2.getTime();
+            long day=time/(24*60*60*1000);
+            long hour=(time/(60*60*1000)-day*24);
+            long min=((time/(60*1000))-day*24*60-hour*60);
+            //long s=(time/1000-day*24*60*60-hour*60*60-min*60);
+            if(day==0){
+                if(hour==0){
+                    if(min==0){
+                        this.time.setText("刚刚");
+                    }else {
+                        this.time.setText(min+"分钟前");
+                    }
+                }else {
+                    this.time.setText(hour+"小时前");
+                }
+            }else {
+                this.time.setText(day+"天前");
+            }
             if (data.getAddress() != "") {
                 address.setText((data.getAddress()));
             } else {

@@ -1,6 +1,5 @@
 package com.greenhi.lalababy.resultUnit;
 
-import java.util.Date;
 import java.util.List;
 
 public class CommunityResult {
@@ -37,12 +36,28 @@ public class CommunityResult {
     public static class DataDTO {
         private String head;
         private String name;
+        private String status;
         private String time;
         private String address;
         private String comments;
         private String likes;
         private String content;
         private Object imgList;
+
+        @Override
+        public String toString() {
+            return "DataDTO{" +
+                    "head='" + head + '\'' +
+                    ", name='" + name + '\'' +
+                    ", status='" + status + '\'' +
+                    ", time='" + time + '\'' +
+                    ", address='" + address + '\'' +
+                    ", comments='" + comments + '\'' +
+                    ", likes='" + likes + '\'' +
+                    ", content='" + content + '\'' +
+                    ", imgList=" + imgList +
+                    '}';
+        }
 
         public String getHead() {
             return head;
@@ -58,6 +73,14 @@ public class CommunityResult {
 
         public void setName(String name) {
             this.name = name;
+        }
+
+        public String getStatus() {
+            return status;
+        }
+
+        public void setStatus(String status) {
+            this.status = status;
         }
 
         public String getTime() {

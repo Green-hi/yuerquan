@@ -7,8 +7,8 @@
     android:id="@+id/fl_home"
     android:visibility="visible">
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/smart"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_home"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         app:srlEnableLoadMore="false">
@@ -140,7 +140,7 @@
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <!--<com.taopao.modulemuzi.view.MuZIEmptyView
         android:id="@id/emptyview"

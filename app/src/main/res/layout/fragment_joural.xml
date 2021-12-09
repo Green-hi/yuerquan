@@ -10,8 +10,8 @@
         android:layout_height="@dimen/statusbar_view_height"
         android:background="#ffff6688" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
-        android:id="@+id/smartRefresh"
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh_layout"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:clipChildren="false"
@@ -80,5 +80,5 @@
                 <include layout="@layout/layout_joural_tabbar" />
             </FrameLayout>
         </androidx.core.widget.NestedScrollView>
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </LinearLayout>

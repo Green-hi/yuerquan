@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -24,6 +25,7 @@ import com.greenhi.lalababy.R;
 import com.greenhi.lalababy.activity.AddDiaryActivity;
 import com.greenhi.lalababy.adapter.JournalRecyclerAdapter;
 import com.greenhi.lalababy.item.ItemDataJournal;
+import com.greenhi.lalababy.resultUnit.CommunityResult;
 import com.greenhi.lalababy.resultUnit.DiaryResult;
 import com.greenhi.lalababy.retrofit.API;
 import com.greenhi.lalababy.retrofit.RetrofitManager;
@@ -44,6 +46,7 @@ public class JournalFragment extends Fragment {
     private View rootView;
     private RecyclerView recyclerView;
     private JournalRecyclerAdapter recycleAdapter;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private ViewGroup mContentView;
 
     private static List<DiaryResult.DataDTO> journals;
@@ -70,6 +73,7 @@ public class JournalFragment extends Fragment {
         Log.e("TAG4544", "onCreateView: JournalFragment");
         initData();
         initView();
+        handleRefresh();
         return rootView;
     }
 
@@ -97,6 +101,7 @@ public class JournalFragment extends Fragment {
         recycleAdapter = new JournalRecyclerAdapter(journals);
         recyclerView.setAdapter(recycleAdapter);
         mContentView = rootView.findViewById(R.id.cv_community);
+        mSwipeRefreshLayout = rootView.findViewById(R.id.swipe_refresh_layout);
     }
 
     private void initData() {
@@ -121,7 +126,7 @@ public class JournalFragment extends Fragment {
                     if (result.getCode() == 100) {
                         Toast.makeText(getActivity(), "刷新成功", Toast.LENGTH_SHORT).show();
                         journals = result.getData();
-                        Log.i(TAG, "journals: " + journals.get(1).toString());
+                        //Log.i(TAG, "journals: " + journals.get(1).toString());
                         Message message = new Message();
                         message.obj=journals;
                         mHandler.sendMessage(message);
@@ -152,4 +157,60 @@ public class JournalFragment extends Fragment {
             }
         }
     };
+
+    private void handleRefresh() {
+        mSwipeRefreshLayout.setEnabled(true);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                //  在这里执行刷新数据的操作
+                /**
+                 * 这个方法是MainThread是主线程，不可以执行耗时操作。
+                 * 一般来说，我们请求数据需要开一个线程去获取
+                 */
+                //添加数据
+//                ItemDataCommunity data = new ItemDataCommunity(R.drawable.head6, "草草", "宝宝2年8月27天", "刚刚", "", "2", "1"
+//                        , "我的小宝贝帮麻麻吹头发", comImgList);
+//                comList.add(0, data);
+                Call<DiaryResult> task = mApi.getDiaryAll();
+                task.enqueue(new Callback<DiaryResult>() {
+                    @Override
+                    public void onResponse(Call<DiaryResult> call, Response<DiaryResult> response) {
+                        Log.e(TAG, "onResponse--> " + response);
+                        if (response.code() == HttpURLConnection.HTTP_OK) {
+                            DiaryResult result = response.body();
+                            Log.e(TAG, "responseBody --> " + result);
+                            if (result.getCode() == 100) {
+                                Toast.makeText(getActivity(), "刷新成功", Toast.LENGTH_SHORT).show();
+                                journals = result.getData();
+                                //Log.i(TAG, "journals: " + journals.get(1).toString());
+                                Message message = new Message();
+                                message.obj=journals;
+                                mHandler.sendMessage(message);
+                            } else {
+                                Toast.makeText(getActivity(), result.getCode() + " " + result.getMsg(), Toast.LENGTH_SHORT).show();
+                            }
+                        } else {
+                            Toast.makeText(getActivity(), response.toString(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<DiaryResult> call, Throwable t) {
+                        Log.e(TAG, "onFailure --> " + t.toString());
+                        Toast.makeText(getActivity(), "连接失败！请检查网络连接", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                //更新UI
+                new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //这里做两件事，一件是让刷新停止，另一件是更新列表
+                        recycleAdapter.notifyDataSetChanged();
+                        mSwipeRefreshLayout.setRefreshing(false);
+                    }
+                }, 1000);
+            }
+        });
+    }
 }

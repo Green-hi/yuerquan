@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_alignParentTop="true"
-    android:background="#ffffffff"
+    android:background="#fff8f8f8"
     android:orientation="vertical"
     >
     <LinearLayout
@@ -18,7 +18,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:id="@id/layout_left"
+            android:id="@+id/layout_left_home"
             android:layout_width="50.0dip"
             android:layout_height="fill_parent"
             android:layout_marginRight="10.0dip"
@@ -88,100 +88,270 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:background="#fff8f8f8">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
-                    android:visibility="gone">
+                    android:orientation="vertical"
+                    android:paddingRight="15dp">
 
                     <TextView
                         android:id="@+id/tv_content_home1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:textColor="#ff333333"
-                        android:textSize="18.0sp"/>
+                        android:textSize="18.0sp"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/tv_content_home2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#ff333333"
+                        android:textSize="18.0sp"
+                        android:visibility="gone"/>
+                    <TextView
+                        android:id="@+id/tv_content_home3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:textColor="#ff333333"
+                        android:textSize="18.0sp"
+                        android:visibility="gone"/>
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_ser"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
+                    android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <View
-                        android:id="@+id/view2"
-                        android:layout_width="fill_parent"
-                        android:layout_height="0.5dip"
-                        android:background="#fff8f8f8" />
-
-                    <View
-                        android:id="@+id/view3"
-                        android:layout_width="fill_parent"
-                        android:layout_height="8.0dip"
-                        android:background="#fff8f8f8" />
-
                     <LinearLayout
-                        android:layout_width="fill_parent"
+                        android:id="@+id/ll_ser1"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="20.0dip"
-                        android:layout_marginTop="16.0dip"
-                        android:layout_marginRight="20.0dip"
-                        android:layout_marginBottom="16.0dip"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@id/icon"
-                            android:layout_width="18.0dip"
-                            android:layout_height="16.0dip"
-                            app:srcCompat="@mipmap/mine_by" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="0.5dip"
+                            android:background="#fff8f8f8" />
 
-                        <TextView
-                            android:id="@+id/tv_title1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="18.0dip"
-                            android:text="1——2岁"
-                            android:textColor="#ff333333"
-                            android:textSize="15.0sp"
-                            android:textStyle="normal" />
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="8.0dip"
+                            android:background="#fff8f8f8" />
 
                         <LinearLayout
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1.0"
-                            android:gravity="center|right">
+                            android:layout_marginLeft="20.0dip"
+                            android:layout_marginTop="16.0dip"
+                            android:layout_marginRight="20.0dip"
+                            android:layout_marginBottom="16.0dip"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
 
                             <ImageView
-                                android:id="@+id/iv_dian"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="6.0dip"
-                                android:background="@drawable/shape_minyuan"
-                                android:visibility="gone" />
+                                android:id="@id/icon"
+                                android:layout_width="18.0dip"
+                                android:layout_height="16.0dip"
+                                app:srcCompat="@mipmap/icon_home_zjzn" />
 
                             <TextView
-                                android:id="@+id/tv_title2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:gravity="right"
-                                android:text="个人主页"
+                                android:layout_marginLeft="18.0dip"
+                                android:text="0——1岁"
                                 android:textColor="#ff333333"
-                                android:textSize="12.0sp"
+                                android:textSize="15.0sp"
                                 android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.0"
+                                android:gravity="center|right">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="6.0dip"
+                                    android:background="@drawable/shape_minyuan"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="0——1岁"
+                                    android:textColor="#ff333333"
+                                    android:textSize="12.0sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10.0dip"
+                                app:srcCompat="@mipmap/mine_next" />
                         </LinearLayout>
 
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10.0dip"
-                            app:srcCompat="@mipmap/mine_next" />
                     </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_ser2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
 
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="0.5dip"
+                            android:background="#fff8f8f8" />
+
+                        <View
+                            android:layout_width="fill_parent"
+                            android:layout_height="8.0dip"
+                            android:background="#fff8f8f8" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20.0dip"
+                            android:layout_marginTop="16.0dip"
+                            android:layout_marginRight="20.0dip"
+                            android:layout_marginBottom="16.0dip"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@id/icon"
+                                android:layout_width="18.0dip"
+                                android:layout_height="16.0dip"
+                                app:srcCompat="@mipmap/icon_home_zjzn" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18.0dip"
+                                android:text="1——2岁"
+                                android:textColor="#ff333333"
+                                android:textSize="15.0sp"
+                                android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.0"
+                                android:gravity="center|right">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="6.0dip"
+                                    android:background="@drawable/shape_minyuan"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="1——2岁"
+                                    android:textColor="#ff333333"
+                                    android:textSize="12.0sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10.0dip"
+                                app:srcCompat="@mipmap/mine_next" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/ll_ser3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <View
+                            android:id="@+id/view2"
+                            android:layout_width="fill_parent"
+                            android:layout_height="0.5dip"
+                            android:background="#fff8f8f8" />
+
+                        <View
+                            android:id="@+id/view3"
+                            android:layout_width="fill_parent"
+                            android:layout_height="8.0dip"
+                            android:background="#fff8f8f8" />
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20.0dip"
+                            android:layout_marginTop="16.0dip"
+                            android:layout_marginRight="20.0dip"
+                            android:layout_marginBottom="16.0dip"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@id/icon"
+                                android:layout_width="18.0dip"
+                                android:layout_height="16.0dip"
+                                app:srcCompat="@mipmap/icon_home_zjzn" />
+
+                            <TextView
+                                android:id="@+id/tv_title1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="18.0dip"
+                                android:text="2——3岁"
+                                android:textColor="#ff333333"
+                                android:textSize="15.0sp"
+                                android:textStyle="normal" />
+
+                            <LinearLayout
+                                android:layout_width="fill_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.0"
+                                android:gravity="center|right">
+
+                                <ImageView
+                                    android:id="@+id/iv_dian"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginRight="6.0dip"
+                                    android:background="@drawable/shape_minyuan"
+                                    android:visibility="gone" />
+
+                                <TextView
+                                    android:id="@+id/tv_title2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="right"
+                                    android:text="2——3岁"
+                                    android:textColor="#ff333333"
+                                    android:textSize="12.0sp"
+                                    android:textStyle="normal" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10.0dip"
+                                app:srcCompat="@mipmap/mine_next" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

@@ -83,7 +83,7 @@ public class ProfileFragment extends Fragment {
     private void initData(){
         toolList = new ArrayList<>();
         toolList.add(new ItemDataProfile(R.mipmap.mine_my,"个人主页","记录我的轨迹",0));
-        toolList.add(new ItemDataProfile(R.mipmap.mine_jqset,"经期设置","",0));
+        toolList.add(new ItemDataProfile(R.mipmap.mine_jqset,"宝宝设置","",0));
         toolList.add(new ItemDataProfile(R.mipmap.mine_ledou,"乐豆中心","共有30乐豆",1));
         toolList.add(new ItemDataProfile(R.mipmap.mine_ticket,"我的卡券","",0));
         toolList.add(new ItemDataProfile(R.mipmap.mine_sc,"我的收藏","",1));
