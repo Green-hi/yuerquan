@@ -27,6 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class BaseActivity extends AppCompatActivity {
+    protected static final String TAG = "YuerQuan2021";
     private static PermissionListener mListener;
     private static Activity activity;
 
@@ -128,6 +129,12 @@ public class BaseActivity extends AppCompatActivity {
 
     public void navigateTo(Class cls) {
         Intent in = new Intent(activity, cls);
+        startActivity(in);
+    }
+
+    public void navigateWithExtra(Class cls,String key,String value){
+        Intent in = new Intent(activity,cls);
+        in.putExtra(key,value);
         startActivity(in);
     }
 

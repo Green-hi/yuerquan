@@ -3,14 +3,14 @@ package com.greenhi.lalababy.resultUnit;
 public class PostResult {
 
     private Integer code;
-    private String message;
+    private String msg;
     private Object data;
 
     @Override
     public String toString() {
         return "PostResult{" +
                 "code=" + code +
-                ", message='" + message + '\'' +
+                ", message='" + msg + '\'' +
                 ", data=" + data +
                 '}';
     }
@@ -24,11 +24,11 @@ public class PostResult {
     }
 
     public String getMessage() {
-        return message;
+        return msg;
     }
 
     public void setMessage(String message) {
-        this.message = message;
+        this.msg = message;
     }
 
     public Object getData() {

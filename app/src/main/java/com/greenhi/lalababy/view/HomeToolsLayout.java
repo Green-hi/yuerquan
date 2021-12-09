@@ -25,12 +25,6 @@ public class HomeToolsLayout extends LinearLayout {
 
     private List<ItemDataTools> mToolList;
 
-
-    public HomeToolsLayout(Context context) {
-        super(context);
-        mContext = context;
-    }
-
     public HomeToolsLayout(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         mContext = context;

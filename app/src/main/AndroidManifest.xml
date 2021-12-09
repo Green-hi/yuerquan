@@ -2,21 +2,43 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.greenhi.lalababy">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
-    <!--@style/ActivityTranslucent-->
-    <!--@style/Theme.AppCompat.Light.NoActionBar.FullScreen-->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/app_logo"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity
+            android:name=".activity.Home4Activity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Home3Activity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Home2Activity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.Home1Activity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.AddCommunityActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.AddDiaryActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.LoginActivity"
-            android:exported="true" >
+            android:exported="true" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,19 +46,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.RegisterActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
-
-        </activity>
-        <activity
             android:name=".activity.TestActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
+
 </manifest>

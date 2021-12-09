@@ -6,7 +6,7 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     android:id="@+id/cv_community">
-    <LinearLayout
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="@dimen/toolbar_height"
         android:layout_alignParentTop="true"
@@ -24,7 +24,15 @@
             android:text="广场"
             android:textColor="@color/main_text_color"
             android:textSize="@dimen/toolbar_title" />
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/add_community"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:layout_marginRight="20dp"
+            android:src="@mipmap/card_add"
+            app:tint="@color/background_verbose"/>
+    </FrameLayout>
     <RadioGroup
         android:id="@+id/rg"
         android:layout_width="fill_parent"

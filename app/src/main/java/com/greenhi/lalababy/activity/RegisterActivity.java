@@ -1,6 +1,7 @@
 package com.greenhi.lalababy.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,15 +13,19 @@ import androidx.annotation.Nullable;
 
 import com.greenhi.lalababy.R;
 import com.greenhi.lalababy.domain.UserBase;
+import com.greenhi.lalababy.domain.UserExtend;
 import com.greenhi.lalababy.resultUnit.PostResult;
 import com.greenhi.lalababy.retrofit.API;
 import com.greenhi.lalababy.retrofit.RetrofitManager;
 
+import java.net.HttpURLConnection;
+
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener {
 
-    private static final String TAG = "RegisterActivity2021";
     private API mApi;
 
     private TextView mTvStatementRegister,mTvPhoneNumber;
@@ -79,8 +84,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.submitBtn:
                 if(mIvAgree.isSelected()){
-                    addUserBase();
-                    navigateTo(LoginActivity.class);
+                    doRegister();
                 }else{
                     showToastCenter("请勾选同意相关协议政策");
                 }
@@ -97,10 +101,50 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         }
     }
 
-    private void addUserBase() {
+    private void doRegister() {
         UserBase userBase = new UserBase(mEtPhoneNum.getText().toString()
                 , mEtPwd.getText().toString(), mEtNickname.getText().toString());
-        Call<PostResult> task = mApi.addUserBase(userBase);
-        enqueueTask(task,TAG);
+        UserExtend userExtend = new UserExtend(mEtPhoneNum.getText().toString()
+                ,mEtNickname.getText().toString(),null,null);
+        Call<PostResult> task1 = mApi.addUserBase(userBase);
+        Call<PostResult> task2 = mApi.addUserExtend(userExtend);
+        task2.enqueue(new Callback<PostResult>() {
+            @Override
+            public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                Log.e(TAG, "onResponse--> "+response );
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    PostResult result = response.body();
+                    Log.e(TAG, "add user-extend responseBody --> " + result);
+
+                }
+            }
+            @Override
+            public void onFailure(Call<PostResult> call, Throwable t) {
+                Log.e(TAG, "onFailure --> " + t.toString());
+            }
+        });
+        task1.enqueue(new Callback<PostResult>() {
+            @Override
+            public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                Log.e(TAG, "onResponse--> "+response );
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    PostResult result = response.body();
+                    Log.e(TAG, "responseBody --> " + result);
+                    if (result.getCode() == 100) {
+                        showToast("注册成功");
+                        navigateTo(LoginActivity.class);
+                    }else {
+                        showToast(result.getCode()+" "+result.getMessage());
+                    }
+                }else {
+                    showToast(response.toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<PostResult> call, Throwable t) {
+                Log.e(TAG, "onFailure --> " + t.toString());
+                showToast("连接失败！请检查网络连接");
+            }
+        });
     }
 }

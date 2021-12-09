@@ -1,6 +1,7 @@
 package com.greenhi.lalababy.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,20 +13,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.greenhi.lalababy.R;
 import com.greenhi.lalababy.item.ItemDataCommunity;
+import com.greenhi.lalababy.resultUnit.CommunityResult;
 import com.jaeger.ninegridimageview.NineGridImageView;
 import com.jaeger.ninegridimageview.NineGridImageViewAdapter;
 import com.ms.square.android.expandabletextview.ExpandableTextView;
 import com.squareup.picasso.Picasso;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class CommunityRecyclerAdapter extends RecyclerView.Adapter<CommunityRecyclerAdapter.ViewHolder> {
 
-    private List<ItemDataCommunity> comList;
+    private List<CommunityResult.DataDTO> comList;
     //private LayoutInflater mInflater;
     //private int mShowStyle;
 
-    public CommunityRecyclerAdapter(List<ItemDataCommunity> comList) {
+    public CommunityRecyclerAdapter(List<CommunityResult.DataDTO> comList) {
         this.comList = comList;
     }
 
@@ -112,21 +117,36 @@ public class CommunityRecyclerAdapter extends RecyclerView.Adapter<CommunityRecy
             nineGrid.setAdapter(mAdapter);
         }
 
-        public void bind(ItemDataCommunity data) {
-            head.setImageResource(data.getHeadID());
+        public void bind(CommunityResult.DataDTO data) {
+            //head.setImageResource(data.getHeadID());
             name.setText(data.getName());   //注意！！！setText要传入String类型！！！
-            status.setText(data.getStatus());
-            time.setText(data.getTime());
+            //status.setText(data.getStatus());
+//            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//            Date time1 = new Date();
+//            Date time2 = null;
+//            String sd = df.format(new Date(Long.parseLong(String.valueOf(data.getTime()))));
+//            try {
+//                time2 = df.parse(sd);
+//            } catch (ParseException e) {
+//                e.printStackTrace();
+//            }
+//            long time = time1.getTime()-time2.getTime();
+//            long day=time/(24*60*60*1000);
+//            long hour=(time/(60*60*1000)-day*24);
+//            long min=((time/(60*1000))-day*24*60-hour*60);
+//            long s=(time/1000-day*24*60*60-hour*60*60-min*60);
+//            this.time.setText("d:"+day+"h:"+hour+"m:"+min+"s:"+s);
+            this.time.setText(data.getTime());
             if (data.getAddress() != "") {
                 address.setText((data.getAddress()));
             } else {
                 address.setVisibility(View.GONE);
             }
-            comment.setText(data.getComment());
-            like.setText(data.getLike());
-            tvExpand.setText(data.getComText());
+            comment.setText(data.getComments());
+            like.setText(data.getLikes());
+            tvExpand.setText(data.getContent());
             if (data.getImgList() != null) {
-                nineGrid.setImagesData(data.getImgList());
+                //nineGrid.setImagesData(data.getImgList());
                 nineGrid.setVisibility(View.VISIBLE);
             }
 //            Log.d("jaeger", "九宫格高度: " + nineGrid.getMeasuredHeight());

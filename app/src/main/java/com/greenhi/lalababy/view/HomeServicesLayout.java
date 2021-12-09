@@ -40,12 +40,10 @@ public class HomeServicesLayout extends LinearLayout {
 
     private void initData() {
         mToolList = new ArrayList<>();
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
-        mToolList.add(new ItemDataTools(R.mipmap.ic_check_result,"产检结果"));
+        mToolList.add(new ItemDataTools(R.drawable.icon_taidong_baby,"宝宝成长特点"));
+        mToolList.add(new ItemDataTools(R.drawable.icon_xiaole,"亲子游戏"));
+        mToolList.add(new ItemDataTools(R.mipmap.icon_home_heightweight,"健康管理"));
+        mToolList.add(new ItemDataTools(R.drawable.icon_message_muzi,"养娃小tip"));
     }
 
     private void initView() {

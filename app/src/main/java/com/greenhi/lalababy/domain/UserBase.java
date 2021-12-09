@@ -6,6 +6,9 @@ public class UserBase {
     private String password;
     private String nickName;
 
+    public UserBase() {
+    }
+
     public UserBase(String phoneNum, String password, String nickName) {
         this.phoneNum = phoneNum;
         this.password = password;

@@ -10,5 +10,8 @@
             简介我是简介我是简介</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="baby_weight">体重:<u>5.0kg</u> 身高:<u>53.0cm</u></string>
+    <string name="diary_tag">\#第一次#</string>
+    <string name="diary_address">不显示位置</string>
 
 </resources>

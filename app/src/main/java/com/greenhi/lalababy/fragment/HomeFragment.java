@@ -1,19 +1,24 @@
 package com.greenhi.lalababy.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.greenhi.lalababy.R;
+import com.greenhi.lalababy.activity.AddDiaryActivity;
 
 public class HomeFragment extends Fragment {
+
+    private static final String TAG = "FYuerQuan2021";
 
     private Context mContext;
     private View rootView;
@@ -51,5 +56,22 @@ public class HomeFragment extends Fragment {
 //        initView();
         return rootView;
     }
+
+    /*@Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LinearLayout llAddDiary = getView().findViewById(R.id.layout_add_diary_unique);
+        llAddDiary.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = getArguments();
+                String phoneNum = (String) bundle.get("phoneNum");
+                Log.e(TAG, "JournalFragment phoneNum--> "+phoneNum );
+                Intent intent = new Intent(getActivity(), AddDiaryActivity.class);
+                intent.putExtra("phoneNum",phoneNum);
+                startActivity(intent);
+            }
+        });
+    }*/
 
 }

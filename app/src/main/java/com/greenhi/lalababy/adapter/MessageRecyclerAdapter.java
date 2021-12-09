@@ -53,11 +53,22 @@ public class MessageRecyclerAdapter extends RecyclerView.Adapter<MessageRecycler
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.icon = (ImageView) itemView.findViewById(R.id.icon);
-            this.title = (TextView) itemView.findViewById(R.id.tv_title);
-            this.message = (TextView) itemView.findViewById(R.id.tv_message);
-            this.time = (TextView) itemView.findViewById(R.id.tv_time);
-            this.num = (TextView) itemView.findViewById(R.id.tv_num);
+            this.icon = itemView.findViewById(R.id.icon);
+            this.title = itemView.findViewById(R.id.tv_title);
+            this.message = itemView.findViewById(R.id.tv_message);
+            this.time = itemView.findViewById(R.id.tv_time);
+            this.num = itemView.findViewById(R.id.tv_num);
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+

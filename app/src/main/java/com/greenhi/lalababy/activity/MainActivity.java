@@ -1,20 +1,14 @@
 package com.greenhi.lalababy.activity;
 
-import static com.greenhi.lalababy.utils.ScreenUtils.getStatusHeight;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -26,11 +20,17 @@ import com.greenhi.lalababy.fragment.HomeFragment;
 import com.greenhi.lalababy.fragment.JournalFragment;
 import com.greenhi.lalababy.fragment.MessageFragment;
 import com.greenhi.lalababy.fragment.ProfileFragment;
+import com.greenhi.lalababy.item.ItemDataJournal;
 import com.greenhi.lalababy.utils.ScreenUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    public static final String TAG = "YuerQuan2021";
+
+    private ArrayList<Fragment> fragments;
 
     ViewPager2 viewPager;
     LinearLayout llHome,llJournal,llSquare,llMessage,llProfile;
@@ -75,22 +75,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         tvMessage = findViewById(R.id.text_message);
         tvProfile = findViewById(R.id.text_profile);
 
-        ivHome.setSelected(true);
-        tvHome.setSelected(true);
-        ivCurrent = ivHome;
-        tvCurrent = tvHome;
+        ivJournal.setSelected(true);
+        tvJournal.setSelected(true);
+        ivCurrent = ivJournal;
+        tvCurrent = tvJournal;
     }
 
     private void initPager() {
         viewPager = findViewById(R.id.viewPager);
-        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments = new ArrayList<>();
         fragments.add(HomeFragment.newInstance());
-        fragments.add(JournalFragment.newInstance("",""));
-        fragments.add(CommunityFragment.newInstance());
+        String phoneNum = getIntent().getStringExtra("phoneNum");
+        Log.e(TAG, "MainActivity phoneNum--> "+phoneNum );
+        Bundle bundle = new Bundle();
+        bundle.putString("phoneNum",phoneNum);
+        JournalFragment journalFragment = JournalFragment.newInstance();
+        journalFragment.setArguments(bundle);
+        fragments.add(journalFragment);
+        CommunityFragment communityFragment = CommunityFragment.newInstance();
+        communityFragment.setArguments(bundle);
+        fragments.add(communityFragment);
         fragments.add(MessageFragment.newInstance());
         fragments.add(ProfileFragment.newInstance("我的"));
         MyFragmentPagerAdapter pagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),getLifecycle(),fragments);
         viewPager.setAdapter(pagerAdapter);
+        viewPager.setCurrentItem(1);
         viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { //正在滚动
@@ -162,76 +171,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
-    protected void setStatusBarFullTransparent() {
-        if (Build.VERSION.SDK_INT >= 21) {//21表示5.0
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                    | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= 19) {//19表示4.4
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //虚拟键盘也透明
-            //getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume: MainActivity");
+        /*int fragmentFlag = getIntent().getIntExtra("fragment_flag",2);
+        Log.i(TAG, "fragmentFlag: "+fragmentFlag);
+        changeTab(fragmentFlag);
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        switch (fragmentFlag){
+            case 1:
+                transaction.replace(R.id.viewPager, fragments.get(1));
+                break;
+            case 2:
+                //transaction.replace(R.id.fl_radio_show, mFragments[1]);
+                break;
+            case 3:
+                //transaction.replace(R.id.fl_radio_show, mFragments[2]);
+                break;
+            default:
+                break;
         }
+        transaction.commit();*/
+
     }
 
-    /**
-     * 半透明状态栏
-     */
-    protected void setHalfTransparent() {
-
-        if (Build.VERSION.SDK_INT >= 21) {//21表示5.0
-            View decorView = getWindow().getDecorView();
-            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
-            decorView.setSystemUiVisibility(option);
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
-        } else if (Build.VERSION.SDK_INT >= 19) {//19表示4.4
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            //虚拟键盘也透明
-            // getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }
-    }
-
-    /**
-     * 如果需要内容紧贴着StatusBar
-     * 应该在对应的xml布局文件中，设置根布局fitsSystemWindows=true。
-     */
-    private View contentViewGroup;
-
-    protected void setFitSystemWindow(boolean fitSystemWindow) {
-        if (contentViewGroup == null) {
-            contentViewGroup = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-        }
-        contentViewGroup.setFitsSystemWindows(fitSystemWindow);
-    }
-
-    /**
-     * 为了兼容4.4的抽屉布局->透明状态栏
-     */
-    protected void setDrawerLayoutFitSystemWindow() {
-        if (Build.VERSION.SDK_INT == 19) {//19表示4.4
-            int statusBarHeight = getStatusHeight(this);
-            if (contentViewGroup == null) {
-                contentViewGroup = ((ViewGroup) findViewById(android.R.id.content)).getChildAt(0);
-            }
-            if (contentViewGroup instanceof DrawerLayout) {
-                DrawerLayout drawerLayout = (DrawerLayout) contentViewGroup;
-                drawerLayout.setClipToPadding(true);
-                drawerLayout.setFitsSystemWindows(false);
-                for (int i = 0; i < drawerLayout.getChildCount(); i++) {
-                    View child = drawerLayout.getChildAt(i);
-                    child.setFitsSystemWindows(false);
-                    child.setPadding(0,statusBarHeight, 0, 0);
-                }
-
-            }
-        }
-    }
-
-    public void setStatusBarColor(Activity activity, int colorId) {
-
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause: MainActivity");
     }
 }
