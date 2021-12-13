@@ -68,40 +68,46 @@ public class AddDiaryActivity extends BaseActivity implements View.OnClickListen
                 this.finish();
                 break;
             case R.id.layout_right:
-                String phoneNum = getIntent().getStringExtra("phoneNum");
-                Log.e(TAG, "AddDiaryActivity phoneNum--> "+phoneNum );
-                itemDataJournal.setPhoneNum(phoneNum);
-                Calendar calendar = Calendar.getInstance();
-                itemDataJournal.setDay(calendar.get(Calendar.DAY_OF_MONTH)+"");
-                itemDataJournal.setYear(calendar.get(Calendar.YEAR)+"/"+calendar.get(Calendar.MONTH));
-                itemDataJournal.setAge("3月28天");
-                itemDataJournal.setTitle(etTitle.getText().toString());
-                itemDataJournal.setContent(etContent.getText().toString());
-                Call<PostResult> task = mApi.postDiary(itemDataJournal);
-                task.enqueue(new Callback<PostResult>() {
-                    @Override
-                    public void onResponse(Call<PostResult> call, Response<PostResult> response) {
-                        Log.e(TAG, "onResponse--> "+response );
-                        if (response.code() == HttpURLConnection.HTTP_OK) {
-                            PostResult result = response.body();
-                            Log.e(TAG, "responseBody --> " + result);
-                            if (result.getCode() == 100) {
-                                showToast("日记数据上传成功");
-                                mActivity.finish();
+                String title = etTitle.getText().toString();
+                String content = etContent.getText().toString();
+                if(title==null||title.trim().isEmpty()||content==null||content.trim().isEmpty()){
+                    showToast("请完善日记内容");
+                }else {
+                    String phoneNum = getIntent().getStringExtra("phoneNum");
+                    Log.e(TAG, "AddDiaryActivity phoneNum--> "+phoneNum );
+                    itemDataJournal.setPhoneNum(phoneNum);
+                    Calendar calendar = Calendar.getInstance();
+                    itemDataJournal.setDay(calendar.get(Calendar.DAY_OF_MONTH)+"");
+                    itemDataJournal.setYear(calendar.get(Calendar.YEAR)+"/"+calendar.get(Calendar.MONTH));
+                    itemDataJournal.setAge("3月28天");
+                    itemDataJournal.setTitle(title);
+                    itemDataJournal.setContent(content);
+                    Call<PostResult> task = mApi.postDiary(itemDataJournal);
+                    task.enqueue(new Callback<PostResult>() {
+                        @Override
+                        public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                            Log.e(TAG, "onResponse--> "+response );
+                            if (response.code() == HttpURLConnection.HTTP_OK) {
+                                PostResult result = response.body();
+                                Log.e(TAG, "responseBody --> " + result);
+                                if (result.getCode() == 100) {
+                                    showToast("日记数据上传成功");
+                                    mActivity.finish();
+                                }else {
+                                    showToast(result.getCode()+" "+result.getMessage());
+                                }
                             }else {
-                                showToast(result.getCode()+" "+result.getMessage());
+                                showToast(response.toString());
                             }
-                        }else {
-                            showToast(response.toString());
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<PostResult> call, Throwable t) {
-                        Log.e(TAG, "onFailure --> " + t.toString());
-                        showToast("连接失败！请检查网络连接");
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<PostResult> call, Throwable t) {
+                            Log.e(TAG, "onFailure --> " + t.toString());
+                            showToast("连接失败！请检查网络连接");
+                        }
+                    });
+                }
 //                Intent intent = new Intent(this,MainActivity.class);
 //                intent.putExtra("fragment_flag", 1);
                 //this.finish();

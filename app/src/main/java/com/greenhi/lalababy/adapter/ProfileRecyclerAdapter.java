@@ -17,9 +17,11 @@ import java.util.List;
 public class ProfileRecyclerAdapter extends RecyclerView.Adapter<ProfileRecyclerAdapter.ViewHolder> {  //此处记得传入泛型
                                                                                               // 默认是RecyclerView.ViewHolder
     List<ItemDataProfile> toolList;
+    OnItemClickListener mListener;
 
-    public ProfileRecyclerAdapter(List<ItemDataProfile> toolList) {
+    public ProfileRecyclerAdapter(List<ItemDataProfile> toolList,OnItemClickListener listener) {
         this.toolList = toolList;
+        this.mListener = listener;
     }
 
     @NonNull
@@ -33,6 +35,7 @@ public class ProfileRecyclerAdapter extends RecyclerView.Adapter<ProfileRecycler
     @Override
     public void onBindViewHolder(@NonNull ProfileRecyclerAdapter.ViewHolder holder, int position) {
 
+        holder.position = position;
         holder.icon.setImageResource(toolList.get(position).getIconImgID());
         holder.title1.setText(toolList.get(position).getTitle1());
         holder.title2.setText(toolList.get(position).getTitle2());
@@ -60,12 +63,25 @@ public class ProfileRecyclerAdapter extends RecyclerView.Adapter<ProfileRecycler
         TextView title1,title2;
         View view;
 
+        int position;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.icon = (ImageView) itemView.findViewById(R.id.icon);
-            this.title1 = (TextView) itemView.findViewById(R.id.tv_title1);
-            this.title2 = (TextView) itemView.findViewById(R.id.tv_title2);
+            this.icon = itemView.findViewById(R.id.icon);
+            this.title1 = itemView.findViewById(R.id.tv_title1);
+            this.title2 = itemView.findViewById(R.id.tv_title2);
             this.view = itemView.findViewById(R.id.view3);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mListener.onItemClick(position);
+                }
+            });
         }
     }
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+
 }

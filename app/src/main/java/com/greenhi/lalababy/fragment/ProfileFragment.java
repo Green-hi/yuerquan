@@ -1,6 +1,7 @@
 package com.greenhi.lalababy.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,8 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.greenhi.lalababy.R;
+import com.greenhi.lalababy.activity.SetActivity;
 import com.greenhi.lalababy.adapter.ProfileRecyclerAdapter;
 import com.greenhi.lalababy.item.ItemDataProfile;
 
@@ -77,9 +80,50 @@ public class ProfileFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext,LinearLayoutManager.VERTICAL,false);
         recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_profile);
         recyclerView.setLayoutManager(linearLayoutManager);
-        recycleAdapter = new ProfileRecyclerAdapter(toolList);
+        recycleAdapter = new ProfileRecyclerAdapter(toolList, new ProfileRecyclerAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                setListener(position);
+            }
+        });
         recyclerView.setAdapter(recycleAdapter);
     }
+
+    private void setListener(int position) {
+        switch (position){
+            case 0:
+                Toast.makeText(mContext,"个人主页",Toast.LENGTH_SHORT).show();
+                break;
+            case 1:
+                Toast.makeText(mContext,"宝宝设置",Toast.LENGTH_SHORT).show();
+                break;
+            case 2:
+                Toast.makeText(mContext,"乐豆中心",Toast.LENGTH_SHORT).show();
+                break;
+            case 3:
+                Toast.makeText(mContext,"我的卡券",Toast.LENGTH_SHORT).show();
+                break;
+            case 4:
+                Toast.makeText(mContext,"我的收藏",Toast.LENGTH_SHORT).show();
+                break;
+            case 5:
+                Toast.makeText(mContext,"技术咨询",Toast.LENGTH_SHORT).show();
+                break;
+            case 6:
+                Toast.makeText(mContext,"推荐给好友",Toast.LENGTH_SHORT).show();
+                break;
+            case 7:
+                Toast.makeText(mContext,"服务条款",Toast.LENGTH_SHORT).show();
+                break;
+            case 8:
+                Intent intent8 = new Intent(mContext, SetActivity.class);
+                startActivity(intent8);
+                break;
+            default:
+                break;
+        }
+    }
+
     private void initData(){
         toolList = new ArrayList<>();
         toolList.add(new ItemDataProfile(R.mipmap.mine_my,"个人主页","记录我的轨迹",0));

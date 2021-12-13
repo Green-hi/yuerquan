@@ -34,6 +34,8 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     private ImageView mIvSee, mIvAgree;
     private Button mBtnSendCaptcha, mBtnNext, mBtnSubmit;
 
+    private static String phoneNum,pwd,nickName;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,14 +104,41 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void doRegister() {
-        new Thread(new Runnable() {
+        phoneNum = mEtPhoneNum.getText().toString();
+        pwd = mEtPwd.getText().toString();
+        nickName = mEtNickname.getText().toString();
+        UserBase userBase = new UserBase(phoneNum, pwd, nickName);
+        Call<PostResult> task1 = mApi.addUserBase(userBase);
+        task1.enqueue(new Callback<PostResult>() {
+            @Override
+            public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                Log.e(TAG, "onResponse--> "+response );
+                if (response.code() == HttpURLConnection.HTTP_OK) {
+                    PostResult result = response.body();
+                    Log.e(TAG, "responseBody --> " + result);
+                    if (result.getCode() == 100) {
+                        showToast("注册成功");
+                        navigateTo(LoginActivity.class);
+                    }else {
+                        showToast(result.getCode()+" "+result.getMessage());
+                    }
+                }else {
+                    showToast(response.toString());
+                }
+            }
+            @Override
+            public void onFailure(Call<PostResult> call, Throwable t) {
+                Log.e(TAG, "onFailure --> " + t.toString());
+                showToast("连接失败！请检查网络连接");
+            }
+        });
+
+        new Thread(new Runnable() {   //在另一个线程中上传user_extend数据
             @Override
             public void run() {
-                UserBase userBase = new UserBase(mEtPhoneNum.getText().toString()
-                        , mEtPwd.getText().toString(), mEtNickname.getText().toString());
-                UserExtend userExtend = new UserExtend(mEtPhoneNum.getText().toString()
-                        ,mEtNickname.getText().toString(),null,null);
-                Call<PostResult> task1 = mApi.addUserBase(userBase);
+
+                UserExtend userExtend = new UserExtend(phoneNum,nickName,null,null);
+
                 Call<PostResult> task2 = mApi.addUserExtend(userExtend);
                 task2.enqueue(new Callback<PostResult>() {
                     @Override
@@ -118,39 +147,14 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                         if (response.code() == HttpURLConnection.HTTP_OK) {
                             PostResult result = response.body();
                             Log.e(TAG, "add user-extend responseBody --> " + result);
-
                         }
                     }
                     @Override
                     public void onFailure(Call<PostResult> call, Throwable t) {
                         Log.e(TAG, "onFailure --> " + t.toString());
-                    }
-                });
-                task1.enqueue(new Callback<PostResult>() {
-                    @Override
-                    public void onResponse(Call<PostResult> call, Response<PostResult> response) {
-                        Log.e(TAG, "onResponse--> "+response );
-                        if (response.code() == HttpURLConnection.HTTP_OK) {
-                            PostResult result = response.body();
-                            Log.e(TAG, "responseBody --> " + result);
-                            if (result.getCode() == 100) {
-                                showToast("注册成功");
-                                navigateTo(LoginActivity.class);
-                            }else {
-                                showToast(result.getCode()+" "+result.getMessage());
-                            }
-                        }else {
-                            showToast(response.toString());
-                        }
-                    }
-                    @Override
-                    public void onFailure(Call<PostResult> call, Throwable t) {
-                        Log.e(TAG, "onFailure --> " + t.toString());
-                        showToast("连接失败！请检查网络连接");
                     }
                 });
             }
         }).start();
-
     }
 }

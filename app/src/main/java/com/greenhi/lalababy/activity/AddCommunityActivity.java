@@ -62,37 +62,42 @@ public class AddCommunityActivity extends BaseActivity implements View.OnClickLi
                 this.finish();
                 break;
             case R.id.community_release:
-                String phoneNum = getIntent().getStringExtra("phoneNum");
-                Log.e(TAG, "AddCommunityActivity phoneNum--> "+phoneNum );
-                itemDataCommunity.setPhoneNum(phoneNum);
-                itemDataCommunity.setAddress("温州市五马街36号");
-                itemDataCommunity.setContent(etContent.getText().toString());
-                Call<PostResult> task = mApi.postCom(itemDataCommunity);
-                task.enqueue(new Callback<PostResult>() {
-                    @Override
-                    public void onResponse(Call<PostResult> call, Response<PostResult> response) {
-                        Log.e(TAG, "onResponse--> "+response );
-                        if (response.code() == HttpURLConnection.HTTP_OK) {
-                            PostResult result = response.body();
-                            Log.e(TAG, "responseBody --> " + result);
-                            if (result.getCode() == 100) {
-                                showToast("朋友圈数据上传成功");
-                                mActivity.finish();
+                String content = etContent.getText().toString();
+                if(content==null||content.trim().isEmpty()){
+                    showToast("请输入朋友圈内容");
+                }else {
+                    String phoneNum = getIntent().getStringExtra("phoneNum");
+                    Log.e(TAG, "AddCommunityActivity phoneNum--> "+phoneNum );
+                    itemDataCommunity.setPhoneNum(phoneNum);
+                    itemDataCommunity.setAddress("温州市五马街36号");
+                    itemDataCommunity.setContent(content);
+                    Call<PostResult> task = mApi.postCom(itemDataCommunity);
+                    task.enqueue(new Callback<PostResult>() {
+                        @Override
+                        public void onResponse(Call<PostResult> call, Response<PostResult> response) {
+                            Log.e(TAG, "onResponse--> "+response );
+                            if (response.code() == HttpURLConnection.HTTP_OK) {
+                                PostResult result = response.body();
+                                Log.e(TAG, "responseBody --> " + result);
+                                if (result.getCode() == 100) {
+                                    showToast("朋友圈数据上传成功");
+                                    mActivity.finish();
+                                }else {
+                                    showToast(result.getCode()+" "+result.getMessage());
+                                }
                             }else {
-                                showToast(result.getCode()+" "+result.getMessage());
+                                showToast(response.toString());
                             }
-                        }else {
-                            showToast(response.toString());
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<PostResult> call, Throwable t) {
-                        Log.e(TAG, "onFailure --> " + t.toString());
-                        showToast("连接失败！请检查网络连接");
-                    }
-                });
-                this.finish();
+                        @Override
+                        public void onFailure(Call<PostResult> call, Throwable t) {
+                            Log.e(TAG, "onFailure --> " + t.toString());
+                            showToast("连接失败！请检查网络连接");
+                        }
+                    });
+                    this.finish();
+                }
                 break;
             default:
                 break;
