@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <external-path path="/download" name="download"/>
+    <files-path path="." name="files_path" />
+    <root-path name="my_image" path="."/>
+</resources>
